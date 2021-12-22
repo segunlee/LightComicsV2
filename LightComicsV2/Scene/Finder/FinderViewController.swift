@@ -67,6 +67,7 @@ class FinderViewController: UITableViewController, FinderDisplayLogic {
         view.backgroundColor = .systemGray6
         configureTableView()
         configureNavigationBarButtonItem()
+        configureToolBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,23 +85,59 @@ class FinderViewController: UITableViewController, FinderDisplayLogic {
     
     
     // MARK: UIBarButtonItems
-    private let barButtonItemContext = UIBarButtonItem()
+    private let contextBBI = UIBarButtonItem()
+    
     private func configureNavigationBarButtonItem() {
-        barButtonItemContext.image = UIImage(systemName: "ellipsis.circle")
-        barButtonItemContext.accessibilityLabel = "메뉴"
-        barButtonItemContext.primaryAction = nil
-        barButtonItemContext.menu = contextMenu()
-        navigationItem.rightBarButtonItems = [barButtonItemContext]
+        contextBBI.image = UIImage(systemName: "ellipsis.circle")
+        contextBBI.accessibilityLabel = "메뉴"
+        contextBBI.primaryAction = nil
+        contextBBI.menu = contextMenu()
+        navigationItem.rightBarButtonItems = [contextBBI]
     }
     
     private func updateContextMenu() {
-        barButtonItemContext.menu = contextMenu()
+        contextBBI.menu = contextMenu()
     }
+    
+    
+    // MARK: UIToolBar
+    private let renameBBI = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: nil, action: nil)
+    private let moveBBI = UIBarButtonItem(image: UIImage(systemName: "arrowshape.turn.up.right"), style: .plain, target: nil, action: nil)
+    private let trashBBI = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: nil, action: nil)
+    private let shareBBI = UIBarButtonItem(barButtonSystemItem: .action, target: nil, action: nil)
+    
+    private func configureToolBar() {
+        self.toolbarItems = [
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), renameBBI,
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), moveBBI,
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), trashBBI,
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), shareBBI,
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        ]
+        updateToolBarItems()
+        
+        renameBBI.actionClosure = { [weak self] in
+            guard let indexPath = self?.tableView.indexPathForSelectedRow else { return }
+            print(indexPath)
+        }
+    }
+    
+    private func updateToolBarItems() {
+        renameBBI.isEnabled = tableView.numberOfSelectedItemsCount == 1
+        moveBBI.isEnabled = tableView.isAnySelectedItems
+        trashBBI.isEnabled = tableView.isAnySelectedItems
+        shareBBI.isEnabled = tableView.isAnySelectedItems
+    }
+    
+    
+    
+    
     
     // MARK: - UITableView Edit Stuff
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         tableView.setEditing(editing, animated: animated)
+        navigationController?.setToolbarHidden(!editing, animated: true)
     }
     
     
@@ -110,6 +147,7 @@ class FinderViewController: UITableViewController, FinderDisplayLogic {
                 guard let isEditing = self?.isEditing else { return }
                 self?.setEditing(!isEditing, animated: true)
                 self?.updateContextMenu()
+                self?.updateToolBarItems()
             })
         ]
         
@@ -118,10 +156,12 @@ class FinderViewController: UITableViewController, FinderDisplayLogic {
                 UIAction(title: "Sel All", image: UIImage(systemName: "checkmark.circle"), handler: { [weak self] (_) in
                     self?.tableView.selectAllRows()
                     self?.updateContextMenu()
+                    self?.updateToolBarItems()
                 }),
                 UIAction(title: "Desel All", image: UIImage(systemName: "checkmark.circle"), handler: { [weak self] (_) in
                     self?.tableView.deselectAllRows()
                     self?.updateContextMenu()
+                    self?.updateToolBarItems()
                 })
             ]
             firstRows.append(contentsOf: editRows)
@@ -231,7 +271,10 @@ class FinderViewController: UITableViewController, FinderDisplayLogic {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard !isEditing else { return }
+        guard !isEditing else {
+            updateToolBarItems()
+            return
+        }
         
         guard let path = viewModel.indexPathForPath(indexPath) else { return }
         
@@ -240,6 +283,13 @@ class FinderViewController: UITableViewController, FinderDisplayLogic {
         }
         else {
             tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        guard !isEditing else {
+            updateToolBarItems()
+            return
         }
     }
     

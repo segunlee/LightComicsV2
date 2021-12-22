@@ -33,4 +33,55 @@ extension UITableView {
             }
         }
     }
+    
+    var isAnySelectedItems: Bool {
+        return numberOfSelectedItemsCount > 0 && numberOfItemsCount != 0
+    }
+    
+    var isAllSelectedItems: Bool {
+        return numberOfItemsCount == numberOfSelectedItemsCount && numberOfItemsCount != 0
+    }
+    
+    var numberOfItemsCount: Int {
+        var value = 0
+        for section in 0..<numberOfSections {
+            value += numberOfRows(inSection: section)
+        }
+        return value
+    }
+    
+    var numberOfSelectedItemsCount: Int {
+        return indexPathsForSelectedRows?.count ?? 0
+    }
+}
+
+
+// MARK: - UIBarButtonItem
+extension UIBarButtonItem {
+    private struct AssociatedObject {
+        static var key = "action_closure_key"
+    }
+
+    var actionClosure: (()->Void)? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedObject.key) as? ()->Void
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedObject.key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            target = self
+            action = #selector(didTapButton(sender:))
+        }
+    }
+
+    @objc func didTapButton(sender: Any) {
+        actionClosure?()
+    }
+}
+
+
+// MARK: - UIBarButtonItem
+extension UIBarButtonItem {
+    class func flexibleSpace() -> UIBarButtonItem {
+        return UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    }
 }
