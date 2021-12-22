@@ -9,13 +9,37 @@
 /* Begin PBXBuildFile section */
 		B30645FB277066DE00BB788D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30645FA277066DE00BB788D /* AppDelegate.swift */; };
 		B30645FD277066DE00BB788D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30645FC277066DE00BB788D /* SceneDelegate.swift */; };
-		B30645FF277066DE00BB788D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30645FE277066DE00BB788D /* ViewController.swift */; };
 		B3064602277066DE00BB788D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3064600277066DE00BB788D /* Main.storyboard */; };
 		B3064604277066E000BB788D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3064603277066E000BB788D /* Assets.xcassets */; };
 		B3064607277066E000BB788D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3064605277066E000BB788D /* LaunchScreen.storyboard */; };
 		B3064612277066E000BB788D /* LightComicsV2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3064611277066E000BB788D /* LightComicsV2Tests.swift */; };
 		B306461C277066E000BB788D /* LightComicsV2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306461B277066E000BB788D /* LightComicsV2UITests.swift */; };
 		B306461E277066E000BB788D /* LightComicsV2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306461D277066E000BB788D /* LightComicsV2UITestsLaunchTests.swift */; };
+		B306463F27706E1C00BB788D /* FinderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463927706E1C00BB788D /* FinderPresenter.swift */; };
+		B306464027706E1C00BB788D /* FinderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463927706E1C00BB788D /* FinderPresenter.swift */; };
+		B306464127706E1C00BB788D /* FinderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463927706E1C00BB788D /* FinderPresenter.swift */; };
+		B306464227706E1C00BB788D /* FinderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463A27706E1C00BB788D /* FinderWorker.swift */; };
+		B306464327706E1C00BB788D /* FinderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463A27706E1C00BB788D /* FinderWorker.swift */; };
+		B306464427706E1C00BB788D /* FinderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463A27706E1C00BB788D /* FinderWorker.swift */; };
+		B306464527706E1C00BB788D /* FinderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463B27706E1C00BB788D /* FinderRouter.swift */; };
+		B306464627706E1C00BB788D /* FinderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463B27706E1C00BB788D /* FinderRouter.swift */; };
+		B306464727706E1C00BB788D /* FinderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463B27706E1C00BB788D /* FinderRouter.swift */; };
+		B306464827706E1C00BB788D /* FinderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463C27706E1C00BB788D /* FinderModels.swift */; };
+		B306464927706E1C00BB788D /* FinderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463C27706E1C00BB788D /* FinderModels.swift */; };
+		B306464A27706E1C00BB788D /* FinderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463C27706E1C00BB788D /* FinderModels.swift */; };
+		B306464B27706E1C00BB788D /* FinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463D27706E1C00BB788D /* FinderViewController.swift */; };
+		B306464C27706E1C00BB788D /* FinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463D27706E1C00BB788D /* FinderViewController.swift */; };
+		B306464D27706E1C00BB788D /* FinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463D27706E1C00BB788D /* FinderViewController.swift */; };
+		B306464E27706E1C00BB788D /* FinderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463E27706E1C00BB788D /* FinderInteractor.swift */; };
+		B306464F27706E1C00BB788D /* FinderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463E27706E1C00BB788D /* FinderInteractor.swift */; };
+		B306465027706E1C00BB788D /* FinderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463E27706E1C00BB788D /* FinderInteractor.swift */; };
+		B3064656277075EB00BB788D /* FileKit in Frameworks */ = {isa = PBXBuildFile; productRef = B3064655277075EB00BB788D /* FileKit */; };
+		B35B546D2771CDC500F6757A /* FileKit+.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35B546C2771CDC500F6757A /* FileKit+.swift.swift */; };
+		B35B546E2771CDC500F6757A /* FileKit+.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35B546C2771CDC500F6757A /* FileKit+.swift.swift */; };
+		B35B546F2771CDC500F6757A /* FileKit+.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35B546C2771CDC500F6757A /* FileKit+.swift.swift */; };
+		B39C536A2772FC9800E23D13 /* Foundation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C53692772FC9800E23D13 /* Foundation+.swift */; };
+		B39C536B2772FC9800E23D13 /* Foundation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C53692772FC9800E23D13 /* Foundation+.swift */; };
+		B39C536C2772FC9800E23D13 /* Foundation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C53692772FC9800E23D13 /* Foundation+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +63,6 @@
 		B30645F7277066DE00BB788D /* LightComicsV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightComicsV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B30645FA277066DE00BB788D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B30645FC277066DE00BB788D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B30645FE277066DE00BB788D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B3064601277066DE00BB788D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3064603277066E000BB788D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3064606277066E000BB788D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +72,14 @@
 		B3064617277066E000BB788D /* LightComicsV2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightComicsV2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B306461B277066E000BB788D /* LightComicsV2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightComicsV2UITests.swift; sourceTree = "<group>"; };
 		B306461D277066E000BB788D /* LightComicsV2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightComicsV2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B306463927706E1C00BB788D /* FinderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderPresenter.swift; sourceTree = "<group>"; };
+		B306463A27706E1C00BB788D /* FinderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderWorker.swift; sourceTree = "<group>"; };
+		B306463B27706E1C00BB788D /* FinderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderRouter.swift; sourceTree = "<group>"; };
+		B306463C27706E1C00BB788D /* FinderModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderModels.swift; sourceTree = "<group>"; };
+		B306463D27706E1C00BB788D /* FinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderViewController.swift; sourceTree = "<group>"; };
+		B306463E27706E1C00BB788D /* FinderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderInteractor.swift; sourceTree = "<group>"; };
+		B35B546C2771CDC500F6757A /* FileKit+.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileKit+.swift.swift"; sourceTree = "<group>"; };
+		B39C53692772FC9800E23D13 /* Foundation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3064656277075EB00BB788D /* FileKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,9 +131,10 @@
 		B30645F9277066DE00BB788D /* LightComicsV2 */ = {
 			isa = PBXGroup;
 			children = (
+				B35B546B2771CDB100F6757A /* Extensions */,
+				B306463727706D9300BB788D /* Scene */,
 				B30645FA277066DE00BB788D /* AppDelegate.swift */,
 				B30645FC277066DE00BB788D /* SceneDelegate.swift */,
-				B30645FE277066DE00BB788D /* ViewController.swift */,
 				B3064600277066DE00BB788D /* Main.storyboard */,
 				B3064603277066E000BB788D /* Assets.xcassets */,
 				B3064605277066E000BB788D /* LaunchScreen.storyboard */,
@@ -127,6 +160,36 @@
 			path = LightComicsV2UITests;
 			sourceTree = "<group>";
 		};
+		B306463727706D9300BB788D /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				B306463827706DB200BB788D /* Finder */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		B306463827706DB200BB788D /* Finder */ = {
+			isa = PBXGroup;
+			children = (
+				B306463927706E1C00BB788D /* FinderPresenter.swift */,
+				B306463A27706E1C00BB788D /* FinderWorker.swift */,
+				B306463B27706E1C00BB788D /* FinderRouter.swift */,
+				B306463C27706E1C00BB788D /* FinderModels.swift */,
+				B306463D27706E1C00BB788D /* FinderViewController.swift */,
+				B306463E27706E1C00BB788D /* FinderInteractor.swift */,
+			);
+			path = Finder;
+			sourceTree = "<group>";
+		};
+		B35B546B2771CDB100F6757A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B39C53692772FC9800E23D13 /* Foundation+.swift */,
+				B35B546C2771CDC500F6757A /* FileKit+.swift.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +206,9 @@
 			dependencies = (
 			);
 			name = LightComicsV2;
+			packageProductDependencies = (
+				B3064655277075EB00BB788D /* FileKit */,
+			);
 			productName = LightComicsV2;
 			productReference = B30645F7277066DE00BB788D /* LightComicsV2.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +281,9 @@
 				Base,
 			);
 			mainGroup = B30645EE277066DE00BB788D;
+			packageReferences = (
+				B3064654277075EB00BB788D /* XCRemoteSwiftPackageReference "FileKit" */,
+			);
 			productRefGroup = B30645F8277066DE00BB788D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,8 +327,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B30645FF277066DE00BB788D /* ViewController.swift in Sources */,
+				B39C536A2772FC9800E23D13 /* Foundation+.swift in Sources */,
+				B306464E27706E1C00BB788D /* FinderInteractor.swift in Sources */,
+				B306464227706E1C00BB788D /* FinderWorker.swift in Sources */,
+				B306464827706E1C00BB788D /* FinderModels.swift in Sources */,
+				B306463F27706E1C00BB788D /* FinderPresenter.swift in Sources */,
+				B306464B27706E1C00BB788D /* FinderViewController.swift in Sources */,
 				B30645FB277066DE00BB788D /* AppDelegate.swift in Sources */,
+				B35B546D2771CDC500F6757A /* FileKit+.swift.swift in Sources */,
+				B306464527706E1C00BB788D /* FinderRouter.swift in Sources */,
 				B30645FD277066DE00BB788D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +344,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B306464327706E1C00BB788D /* FinderWorker.swift in Sources */,
+				B39C536B2772FC9800E23D13 /* Foundation+.swift in Sources */,
+				B306464027706E1C00BB788D /* FinderPresenter.swift in Sources */,
+				B306464F27706E1C00BB788D /* FinderInteractor.swift in Sources */,
+				B306464627706E1C00BB788D /* FinderRouter.swift in Sources */,
+				B306464927706E1C00BB788D /* FinderModels.swift in Sources */,
+				B35B546E2771CDC500F6757A /* FileKit+.swift.swift in Sources */,
+				B306464C27706E1C00BB788D /* FinderViewController.swift in Sources */,
 				B3064612277066E000BB788D /* LightComicsV2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,8 +360,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39C536C2772FC9800E23D13 /* Foundation+.swift in Sources */,
+				B306464727706E1C00BB788D /* FinderRouter.swift in Sources */,
 				B306461C277066E000BB788D /* LightComicsV2UITests.swift in Sources */,
+				B306464127706E1C00BB788D /* FinderPresenter.swift in Sources */,
+				B35B546F2771CDC500F6757A /* FileKit+.swift.swift in Sources */,
+				B306464A27706E1C00BB788D /* FinderModels.swift in Sources */,
+				B306465027706E1C00BB788D /* FinderInteractor.swift in Sources */,
 				B306461E277066E000BB788D /* LightComicsV2UITestsLaunchTests.swift in Sources */,
+				B306464D27706E1C00BB788D /* FinderViewController.swift in Sources */,
+				B306464427706E1C00BB788D /* FinderWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -422,7 +514,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -445,13 +537,14 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = SGIOS.LightComicsV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -473,13 +566,14 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = SGIOS.LightComicsV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -604,6 +698,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B3064654277075EB00BB788D /* XCRemoteSwiftPackageReference "FileKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nvzqz/FileKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B3064655277075EB00BB788D /* FileKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3064654277075EB00BB788D /* XCRemoteSwiftPackageReference "FileKit" */;
+			productName = FileKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B30645EF277066DE00BB788D /* Project object */;
 }
