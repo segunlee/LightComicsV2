@@ -32,6 +32,11 @@ class FinderWorker {
         }
     }
     
+    
+    /// 디렉토리를 생성한다.
+    /// - Parameters:
+    ///   - parent: 대상
+    ///   - dirName: 디렉토리명
     func makeDirectory(in parent: Path, dirName: String) throws {
         let new = parent + dirName
         try new.createDirectory()
@@ -40,11 +45,41 @@ class FinderWorker {
     
     /// 요청 경로에 자식들을 반환한다.
     /// - Parameters:
-    ///   - request: Finder.FetchElements.Request
+    ///   - path: 대상
     ///   - completion: completion description
-    func fetchPathElements(request: Finder.FetchFiles.Request, completion: @escaping ([Path]) -> Void) {
-        completion(request.path.children())
+    func fetchPathElements(in path: Path, completion: @escaping ([Path]) -> Void) {
+        completion(path.children())
     }
+
+    
+    /// 파일명을 변경한다.
+    /// - Parameter request: Finder.RenameFile.Request
+    @discardableResult func renameFile(path: Path, name: String) throws -> Path {
+        let raw = path.resolved.rawValue.replacingOccurrences(of: path.fileName, with: name)
+        let new = Path(rawValue: raw).resolved
+        try path.moveFile(to: new)
+        return new
+    }
+
+    
+    /// 파일을 이동한다
+    /// - Parameters:
+    ///   - path: 대상 폴더
+    ///   - filePaths: 대상 경로들
+    func moveFiles(to path: Path, filePaths: [Path]) throws {
+        try filePaths.forEach { p in
+            let new = path + p.fileName
+            try p.moveFile(to: new)
+        }
+    }
+    
+    
+    /// 파일을 삭제한다.
+    /// - Parameter path: 대상
+    func moveTrash(to path: Path) throws {
+        try path.deleteFile()
+    }
+    
 }
 /*
  코어데이터나 서버와 통신이 필요할 경우, Interactor에서 처리하는 것이 아닌 Worker에서 처리하도록 분리할 수 있다.

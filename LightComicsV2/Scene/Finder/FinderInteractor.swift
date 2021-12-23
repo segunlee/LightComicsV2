@@ -17,6 +17,10 @@ protocol FinderBusinessLogic {
     func fetchFiles(request: Finder.FetchFiles.Request)
     func updateSortRule(request: Finder.UpdateSortRule.Request)
     func makeDirectory(request: Finder.MakeDirectory.Request)
+    func renameFile(request: Finder.RenameFile.Request)
+    func moveFiles(request: Finder.MoveFiles.Request)
+    func moveTrash(request: Finder.MoveTrash.Request)
+    func share(request: Finder.Share.Request)
 }
 
 protocol FinderDataStore {
@@ -31,8 +35,8 @@ class FinderInteractor: FinderBusinessLogic, FinderDataStore {
     
     // MARK: Fetch Files
     func fetchFiles(request: Finder.FetchFiles.Request) {
-        print("fetch files in \(request.path.tildify)")
-        worker.fetchPathElements(request: request, completion: { [weak self] paths in
+        print("Fetch files in \(request.path.tildify)")
+        worker.fetchPathElements(in: request.path, completion: { [weak self] paths in
             self?.presenter?.presentFiles(response: .init(elements: paths))
         })
     }
@@ -41,13 +45,14 @@ class FinderInteractor: FinderBusinessLogic, FinderDataStore {
     // MARK: Update Sort Rule
     func updateSortRule(request: Finder.UpdateSortRule.Request) {
         if Finder.currentSortRule == request.rule {
-            Finder.currentSortOrder = Finder.currentSortOrder == .ASC ? .DESC : .ASC
+            Finder.currentSortOrder = Finder.currentSortOrder.isASC ? .DESC : .ASC
         } else {
             Finder.currentSortRule = request.rule
             Finder.currentSortOrder = .ASC
         }
         fetchFiles(request: .init(path: currentPath))
     }
+    
     
     // MARK: Make Directory
     func makeDirectory(request: Finder.MakeDirectory.Request) {
@@ -57,6 +62,50 @@ class FinderInteractor: FinderBusinessLogic, FinderDataStore {
         } catch let error {
             print(error)
         }
+    }
+    
+    
+    // MARK: Rename File
+    func renameFile(request: Finder.RenameFile.Request) {
+        do {
+            try worker.renameFile(path: request.targetPath, name: request.newName)
+            fetchFiles(request: .init(path: currentPath))
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    
+    // MARK: Move Files
+    func moveFiles(request: Finder.MoveFiles.Request) {
+        do {
+            try worker.moveFiles(to: request.moveDirectoryPath, filePaths: request.paths)
+            fetchFiles(request: .init(path: currentPath))
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    
+    // MARK: Trash Files
+    func moveTrash(request: Finder.MoveTrash.Request) {
+        do {
+            try request.paths.forEach { p in
+                try worker.moveTrash(to: p)
+                fetchFiles(request: .init(path: currentPath))
+            }
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    
+    // MARK: Share
+    func share(request: Finder.Share.Request) {
+        let urls = request
+            .paths
+            .compactMap { $0.url }
+        print(urls)
     }
 }
 

@@ -38,8 +38,8 @@ enum Finder {
                 
                 var stringValue: String {
                     switch self {
-                    case .Dirs: return "Directories"
-                    case .Files: return "Files"
+                    case .Dirs: return R.string.DIRECTORY
+                    case .Files: return R.string.FILE
                     }
                 }
             }
@@ -75,11 +75,25 @@ enum Finder {
         case Name
         case Size
         case Date
+        
+        var isName: Bool {
+            return self == .Name
+        }
+        var isSize: Bool {
+            return self == .Size
+        }
+        var isDate: Bool {
+            return self == .Date
+        }
     }
     
     enum FileSortOrder: Int {
         case ASC
         case DESC
+        
+        var isASC: Bool {
+            return self == .ASC
+        }
     }
     
     static var currentSortRule: FileSortRule {
@@ -118,6 +132,57 @@ enum Finder {
             
         }
     }
+
+    
+    enum RenameFile {
+        struct Request {
+            let newName: String
+            let targetPath: Path
+        }
+        struct Response {
+            
+        }
+        struct ViewModel {
+            
+        }
+    }
+    
+    enum MoveFiles {
+        struct Request {
+            let paths: [Path]
+            let moveDirectoryPath: Path
+        }
+        struct Response {
+            
+        }
+        struct ViewModel {
+            
+        }
+    }
+
+    enum MoveTrash {
+        struct Request {
+            let paths: [Path]
+        }
+        struct Response {
+            
+        }
+        struct ViewModel {
+            
+        }
+    }
+    
+    enum Share {
+        struct Request {
+            let paths: [Path]
+        }
+        struct Response {
+            
+        }
+        struct ViewModel {
+            
+        }
+    }
 }
 
 
@@ -128,17 +193,17 @@ extension Array where Iterator.Element == Path {
         sort { a, b in
             switch Finder.currentSortRule {
             case .Name:
-                if Finder.currentSortOrder == .ASC {
+                if Finder.currentSortOrder.isASC {
                     return a.fileName.localizedStandardCompare(b.fileName) == .orderedAscending
                 }
                 return a.fileName.localizedStandardCompare(b.fileName) == .orderedDescending
             case .Size:
-                if Finder.currentSortOrder == .ASC {
+                if Finder.currentSortOrder.isASC {
                     return a.fileSize ?? 0 < b.fileSize ?? 0
                 }
                 return a.fileSize ?? 0 > b.fileSize ?? 0
             case .Date:
-                if Finder.currentSortOrder == .ASC {
+                if Finder.currentSortOrder.isASC {
                     return a.creationDate?.timeIntervalSince1970 ?? 0 < b.creationDate?.timeIntervalSince1970 ?? 0
                 }
                 return a.creationDate?.timeIntervalSince1970 ?? 0 > b.creationDate?.timeIntervalSince1970 ?? 0

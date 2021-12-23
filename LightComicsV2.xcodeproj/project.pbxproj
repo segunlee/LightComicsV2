@@ -34,12 +34,26 @@
 		B306464F27706E1C00BB788D /* FinderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463E27706E1C00BB788D /* FinderInteractor.swift */; };
 		B306465027706E1C00BB788D /* FinderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B306463E27706E1C00BB788D /* FinderInteractor.swift */; };
 		B3064656277075EB00BB788D /* FileKit in Frameworks */ = {isa = PBXBuildFile; productRef = B3064655277075EB00BB788D /* FileKit */; };
+		B34980DC2774700D00003F48 /* DirPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34980D62774700D00003F48 /* DirPickerPresenter.swift */; };
+		B34980DD2774700D00003F48 /* DirPickerWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34980D72774700D00003F48 /* DirPickerWorker.swift */; };
+		B34980DE2774700D00003F48 /* DirPickerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34980D82774700D00003F48 /* DirPickerRouter.swift */; };
+		B34980DF2774700D00003F48 /* DirPickerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34980D92774700D00003F48 /* DirPickerModels.swift */; };
+		B34980E02774700D00003F48 /* DirPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34980DA2774700D00003F48 /* DirPickerViewController.swift */; };
+		B34980E12774700D00003F48 /* DirPickerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34980DB2774700D00003F48 /* DirPickerInteractor.swift */; };
 		B35B546D2771CDC500F6757A /* FileKit+.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35B546C2771CDC500F6757A /* FileKit+.swift.swift */; };
 		B35B546E2771CDC500F6757A /* FileKit+.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35B546C2771CDC500F6757A /* FileKit+.swift.swift */; };
 		B35B546F2771CDC500F6757A /* FileKit+.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35B546C2771CDC500F6757A /* FileKit+.swift.swift */; };
 		B39C536A2772FC9800E23D13 /* Foundation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C53692772FC9800E23D13 /* Foundation+.swift */; };
 		B39C536B2772FC9800E23D13 /* Foundation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C53692772FC9800E23D13 /* Foundation+.swift */; };
 		B39C536C2772FC9800E23D13 /* Foundation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C53692772FC9800E23D13 /* Foundation+.swift */; };
+		B39C537227731E1100E23D13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B39C537527731E1100E23D13 /* Localizable.strings */; };
+		B39C537327731E1100E23D13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B39C537527731E1100E23D13 /* Localizable.strings */; };
+		B39C537827731E5E00E23D13 /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C537727731E5E00E23D13 /* R.swift */; };
+		B39C537927731E5E00E23D13 /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C537727731E5E00E23D13 /* R.swift */; };
+		B39C537B27731FC800E23D13 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C537A27731FC800E23D13 /* Localized.swift */; };
+		B39C537C27731FC800E23D13 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C537A27731FC800E23D13 /* Localized.swift */; };
+		B39C537E2773202E00E23D13 /* I18N.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C537D2773202E00E23D13 /* I18N.swift */; };
+		B39C537F2773202E00E23D13 /* I18N.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C537D2773202E00E23D13 /* I18N.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,8 +92,19 @@
 		B306463C27706E1C00BB788D /* FinderModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderModels.swift; sourceTree = "<group>"; };
 		B306463D27706E1C00BB788D /* FinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderViewController.swift; sourceTree = "<group>"; };
 		B306463E27706E1C00BB788D /* FinderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderInteractor.swift; sourceTree = "<group>"; };
+		B34980D62774700D00003F48 /* DirPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirPickerPresenter.swift; sourceTree = "<group>"; };
+		B34980D72774700D00003F48 /* DirPickerWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirPickerWorker.swift; sourceTree = "<group>"; };
+		B34980D82774700D00003F48 /* DirPickerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirPickerRouter.swift; sourceTree = "<group>"; };
+		B34980D92774700D00003F48 /* DirPickerModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirPickerModels.swift; sourceTree = "<group>"; };
+		B34980DA2774700D00003F48 /* DirPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirPickerViewController.swift; sourceTree = "<group>"; };
+		B34980DB2774700D00003F48 /* DirPickerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirPickerInteractor.swift; sourceTree = "<group>"; };
 		B35B546C2771CDC500F6757A /* FileKit+.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileKit+.swift.swift"; sourceTree = "<group>"; };
 		B39C53692772FC9800E23D13 /* Foundation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+.swift"; sourceTree = "<group>"; };
+		B39C537427731E1100E23D13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B39C537627731E1F00E23D13 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B39C537727731E5E00E23D13 /* R.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
+		B39C537A27731FC800E23D13 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		B39C537D2773202E00E23D13 /* I18N.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = I18N.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +156,8 @@
 		B30645F9277066DE00BB788D /* LightComicsV2 */ = {
 			isa = PBXGroup;
 			children = (
+				B34980D12774679100003F48 /* Components */,
+				B39C536D27731DE200E23D13 /* Resources */,
 				B35B546B2771CDB100F6757A /* Extensions */,
 				B306463727706D9300BB788D /* Scene */,
 				B30645FA277066DE00BB788D /* AppDelegate.swift */,
@@ -163,6 +190,7 @@
 		B306463727706D9300BB788D /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				B34980D527746FDA00003F48 /* DirPicker */,
 				B306463827706DB200BB788D /* Finder */,
 			);
 			path = Scene;
@@ -181,6 +209,26 @@
 			path = Finder;
 			sourceTree = "<group>";
 		};
+		B34980D12774679100003F48 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B34980D527746FDA00003F48 /* DirPicker */ = {
+			isa = PBXGroup;
+			children = (
+				B34980D62774700D00003F48 /* DirPickerPresenter.swift */,
+				B34980D72774700D00003F48 /* DirPickerWorker.swift */,
+				B34980D82774700D00003F48 /* DirPickerRouter.swift */,
+				B34980D92774700D00003F48 /* DirPickerModels.swift */,
+				B34980DA2774700D00003F48 /* DirPickerViewController.swift */,
+				B34980DB2774700D00003F48 /* DirPickerInteractor.swift */,
+			);
+			path = DirPicker;
+			sourceTree = "<group>";
+		};
 		B35B546B2771CDB100F6757A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +236,25 @@
 				B35B546C2771CDC500F6757A /* FileKit+.swift.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B39C536D27731DE200E23D13 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B39C537727731E5E00E23D13 /* R.swift */,
+				B39C536E27731DF000E23D13 /* Strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B39C536E27731DF000E23D13 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				B39C537527731E1100E23D13 /* Localizable.strings */,
+				B39C537A27731FC800E23D13 /* Localized.swift */,
+				B39C537D2773202E00E23D13 /* I18N.swift */,
+			);
+			path = Strings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +346,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = B30645EE277066DE00BB788D;
 			packageReferences = (
@@ -301,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3064607277066E000BB788D /* LaunchScreen.storyboard in Resources */,
+				B39C537227731E1100E23D13 /* Localizable.strings in Resources */,
 				B3064604277066E000BB788D /* Assets.xcassets in Resources */,
 				B3064602277066DE00BB788D /* Main.storyboard in Resources */,
 			);
@@ -310,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39C537327731E1100E23D13 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,15 +398,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				B39C536A2772FC9800E23D13 /* Foundation+.swift in Sources */,
+				B39C537B27731FC800E23D13 /* Localized.swift in Sources */,
 				B306464E27706E1C00BB788D /* FinderInteractor.swift in Sources */,
 				B306464227706E1C00BB788D /* FinderWorker.swift in Sources */,
 				B306464827706E1C00BB788D /* FinderModels.swift in Sources */,
+				B34980DF2774700D00003F48 /* DirPickerModels.swift in Sources */,
 				B306463F27706E1C00BB788D /* FinderPresenter.swift in Sources */,
+				B34980DD2774700D00003F48 /* DirPickerWorker.swift in Sources */,
+				B34980E02774700D00003F48 /* DirPickerViewController.swift in Sources */,
 				B306464B27706E1C00BB788D /* FinderViewController.swift in Sources */,
 				B30645FB277066DE00BB788D /* AppDelegate.swift in Sources */,
+				B34980DC2774700D00003F48 /* DirPickerPresenter.swift in Sources */,
+				B39C537E2773202E00E23D13 /* I18N.swift in Sources */,
 				B35B546D2771CDC500F6757A /* FileKit+.swift.swift in Sources */,
 				B306464527706E1C00BB788D /* FinderRouter.swift in Sources */,
 				B30645FD277066DE00BB788D /* SceneDelegate.swift in Sources */,
+				B34980E12774700D00003F48 /* DirPickerInteractor.swift in Sources */,
+				B34980DE2774700D00003F48 /* DirPickerRouter.swift in Sources */,
+				B39C537827731E5E00E23D13 /* R.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,10 +427,13 @@
 				B39C536B2772FC9800E23D13 /* Foundation+.swift in Sources */,
 				B306464027706E1C00BB788D /* FinderPresenter.swift in Sources */,
 				B306464F27706E1C00BB788D /* FinderInteractor.swift in Sources */,
+				B39C537C27731FC800E23D13 /* Localized.swift in Sources */,
+				B39C537F2773202E00E23D13 /* I18N.swift in Sources */,
 				B306464627706E1C00BB788D /* FinderRouter.swift in Sources */,
 				B306464927706E1C00BB788D /* FinderModels.swift in Sources */,
 				B35B546E2771CDC500F6757A /* FileKit+.swift.swift in Sources */,
 				B306464C27706E1C00BB788D /* FinderViewController.swift in Sources */,
+				B39C537927731E5E00E23D13 /* R.swift in Sources */,
 				B3064612277066E000BB788D /* LightComicsV2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +487,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		B39C537527731E1100E23D13 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B39C537427731E1100E23D13 /* en */,
+				B39C537627731E1F00E23D13 /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -412,6 +503,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -473,6 +565,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

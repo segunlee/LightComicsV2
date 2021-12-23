@@ -62,9 +62,9 @@ extension UIBarButtonItem {
         static var key = "action_closure_key"
     }
 
-    var actionClosure: (()->Void)? {
+    var actionClosure: (() -> Void)? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedObject.key) as? ()->Void
+            return objc_getAssociatedObject(self, &AssociatedObject.key) as? () -> Void
         }
         set {
             objc_setAssociatedObject(self, &AssociatedObject.key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
