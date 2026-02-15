@@ -12,7 +12,7 @@ struct DirSelectionViewState {
 
   func createSortDescription(for sortType: FileSortType) -> String? {
     guard self.sortType == sortType else { return nil }
-    return sortOrder == .asc ? "ascending" : "descending"
+    return sortOrder == .asc ? FinderStrings.stateAscending : FinderStrings.stateDescending
   }
 }
 

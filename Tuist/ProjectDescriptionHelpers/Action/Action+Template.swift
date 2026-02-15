@@ -12,4 +12,10 @@ public extension TargetScript {
     name: "SwiftFormat",
     basedOnDependencyAnalysis: false
   )
+
+  static let generateStrings = TargetScript.pre(
+    path: Path.relativeToRoot("Scripts/GenerateStringsRunScript.sh"),
+    name: "Generate Strings",
+    basedOnDependencyAnalysis: false
+  )
 }

@@ -7,6 +7,6 @@ let project = Project.module(
   targets: [
     .implements(module: .userInterface(.SharedUIComponents), product: .framework, dependencies: [
       .userInterface(target: .DesignSystem)
-    ])
+    ], resources: .sourceResources)
   ]
 )

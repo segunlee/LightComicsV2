@@ -10,8 +10,8 @@ enum FinderSection: Int, CaseIterable {
 
   var title: String? {
     switch self {
-    case .directories: "Directories"
-    case .files: "Files"
+    case .directories: FinderStrings.sectionDirectories
+    case .files: FinderStrings.sectionFiles
     }
   }
 }
@@ -67,7 +67,7 @@ extension FinderViewController: UITableViewDelegate {
   func tableView(_: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     guard let item = diffableDataSource?.itemIdentifier(for: indexPath) else { return nil }
 
-    let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, completion in
+    let deleteAction = UIContextualAction(style: .destructive, title: FinderStrings.alertDeleteAction) { [weak self] _, _, completion in
       self?.viewModel.send(.delete([item]))
       completion(true)
     }

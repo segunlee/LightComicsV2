@@ -321,13 +321,13 @@ final class ReaderViewController: UIViewController, ViewControllerLifecycle {
     let totalPages = viewModel.state.totalPages
     guard totalPages > 0 else { return }
 
-    let alert = UIAlertController(title: "Go to Page", message: "Enter page number (1-\(totalPages))", preferredStyle: .alert)
+    let alert = UIAlertController(title: ReaderStrings.alertGoToPageTitle, message: ReaderStrings.alertGoToPageMessage(totalPages), preferredStyle: .alert)
     alert.addTextField { textField in
       textField.keyboardType = .numberPad
-      textField.placeholder = "Page number"
+      textField.placeholder = ReaderStrings.alertGoToPagePlaceholder
     }
-    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-    alert.addAction(UIAlertAction(title: "Go", style: .default) { [weak self] _ in
+    alert.addAction(UIAlertAction(title: ReaderStrings.alertCancel, style: .cancel))
+    alert.addAction(UIAlertAction(title: ReaderStrings.alertGo, style: .default) { [weak self] _ in
       guard let text = alert.textFields?.first?.text, let page = Int(text),
             page >= 1, page <= totalPages else { return }
       self?.viewModel.send(.scrollTo(page - 1))

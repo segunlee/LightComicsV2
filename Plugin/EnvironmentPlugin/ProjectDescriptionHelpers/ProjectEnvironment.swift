@@ -41,6 +41,7 @@ public let env = ProjectEnvironment(
   ],
   baseOptions: .options(
     automaticSchemesOptions: .disabled,
+    defaultKnownRegions: ["en", "ko"],
     developmentRegion: "en",
     textSettings: .textSettings(usesTabs: false, indentWidth: 2, tabWidth: 2)
   )

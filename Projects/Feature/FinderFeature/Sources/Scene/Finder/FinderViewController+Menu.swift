@@ -3,17 +3,17 @@ import UIKit
 
 extension FinderViewController {
   func createNavigationContextMenu() -> UIMenu {
-    UIMenu(title: "Document", image: nil, identifier: nil, options: .destructive, children: [
+    UIMenu(title: FinderStrings.menuDocument, image: nil, identifier: nil, options: .destructive, children: [
       UIMenu(title: "", options: .displayInline, children: [
         UIAction(
-          title: "Select",
+          title: FinderStrings.menuSelect,
           image: UIImage(systemName: "checkmark.circle"),
           state: .off,
           handler: { [weak self] _ in
             self?.isEditMode = true
           }),
         UIAction(
-          title: "Create Directory",
+          title: FinderStrings.menuCreateDirectory,
           image: UIImage(systemName: "folder.badge.plus"),
           state: .off,
           handler: { [weak self] _ in
@@ -21,9 +21,9 @@ extension FinderViewController {
           })
       ]),
 
-      UIMenu(title: "Sort", options: .displayInline, children: [
+      UIMenu(title: FinderStrings.menuSort, options: .displayInline, children: [
         UIAction(
-          title: "Name",
+          title: FinderStrings.menuName,
           subtitle: viewModel.state.createSortDescription(for: .name),
           state: viewModel.state.sortType == .name ? .on : .off,
           handler: { [weak self] _ in
@@ -31,7 +31,7 @@ extension FinderViewController {
             self?.contextMenuButtonItem.menu = self?.createNavigationContextMenu()
           }),
         UIAction(
-          title: "Date",
+          title: FinderStrings.menuDate,
           subtitle: viewModel.state.createSortDescription(for: .date),
           state: viewModel.state.sortType == .date ? .on : .off,
           handler: { [weak self] _ in
@@ -39,7 +39,7 @@ extension FinderViewController {
             self?.contextMenuButtonItem.menu = self?.createNavigationContextMenu()
           }),
         UIAction(
-          title: "Size",
+          title: FinderStrings.menuSize,
           subtitle: viewModel.state.createSortDescription(for: .size),
           state: viewModel.state.sortType == .size ? .on : .off,
           handler: { [weak self] _ in
@@ -54,14 +54,14 @@ extension FinderViewController {
     guard let item = diffableDataSource?.itemIdentifier(for: indexPath) else { return nil }
 
     return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
-      let selectAction = UIAction(title: "Select", image: UIImage(systemName: "filemenu.and.selection")) { [weak self] _ in
+      let selectAction = UIAction(title: FinderStrings.menuSelect, image: UIImage(systemName: "filemenu.and.selection")) { [weak self] _ in
         if self?.isEditMode == false {
           self?.isEditMode = true
         }
         self?.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
       }
 
-      let renameAction = UIAction(title: "Rename", image: UIImage(systemName: "pencil")) { [weak self] _ in
+      let renameAction = UIAction(title: FinderStrings.menuRename, image: UIImage(systemName: "pencil")) { [weak self] _ in
         self?.showRenameAlert(for: item)
       }
 
@@ -69,21 +69,21 @@ extension FinderViewController {
 //        self?.viewModel.send(.clone(item))
 //      }
 
-      let moveAction = UIAction(title: "Move", image: UIImage(systemName: "folder")) { [weak self] _ in
+      let moveAction = UIAction(title: FinderStrings.menuMove, image: UIImage(systemName: "folder")) { [weak self] _ in
         self?.router.showDirSelection(for: [item], currnetPath: self?.viewModel.currentPath) { destination in
           self?.viewModel.send(.move([item], destination: destination))
         }
       }
 
-      let deleteAction = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive) { [weak self] _ in
+      let deleteAction = UIAction(title: FinderStrings.menuDelete, image: UIImage(systemName: "trash"), attributes: .destructive) { [weak self] _ in
         self?.viewModel.send(.delete([item]))
       }
 
-      let shareAction = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up")) { [weak self] _ in
+      let shareAction = UIAction(title: FinderStrings.menuShare, image: UIImage(systemName: "square.and.arrow.up")) { [weak self] _ in
         self?.shareItem(item)
       }
 
-      let previewAction = UIAction(title: "Preview", image: UIImage(systemName: "eye")) { [weak self] _ in
+      let previewAction = UIAction(title: FinderStrings.menuPreview, image: UIImage(systemName: "eye")) { [weak self] _ in
         self?.previewItem(item)
       }
 

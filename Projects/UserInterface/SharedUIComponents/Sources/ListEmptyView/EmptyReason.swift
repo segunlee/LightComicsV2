@@ -26,11 +26,11 @@ public enum EmptyReason: Sendable {
   var message: String {
     switch self {
     case .noData:
-      "No Data"
+      SharedStrings.emptyNoDataMessage
     case .noSearchResults:
-      "No Search Results"
+      SharedStrings.emptyNoSearchResultsMessage
     case .error:
-      "Error occurred"
+      SharedStrings.emptyErrorMessage
     case .custom(_, let message, _):
       message
     }
@@ -39,9 +39,9 @@ public enum EmptyReason: Sendable {
   var description: String? {
     switch self {
     case .noData:
-      "There's nothing here yet."
+      SharedStrings.emptyNoDataDescription
     case .noSearchResults:
-      "No matches for your search."
+      SharedStrings.emptyNoSearchResultsDescription
     case .error(let description):
       description
     case .custom(_, _, let description):

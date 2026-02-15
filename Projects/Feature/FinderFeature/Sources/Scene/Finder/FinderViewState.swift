@@ -11,7 +11,7 @@ struct FinderViewState {
   var searchQuery: String = ""
   var sortType: FileSortType = .name
   var sortOrder: SortOrder = .asc
-  var title: String = "Documents"
+  var title: String = FinderStrings.stateTitle
   var isPartialReload: Bool = false
 
   // MARK: - Context Menu Sorting Logic
@@ -19,7 +19,7 @@ struct FinderViewState {
   func createSortDescription(for sortType: FileSortType) -> String? {
     guard self.sortType == sortType else { return nil }
     return sortOrder == .asc ?
-      "ascending" : "descending"
+      FinderStrings.stateAscending : FinderStrings.stateDescending
   }
 }
 

@@ -51,7 +51,7 @@ struct FileItemCell: View {
       desc.append(formattedSize(size))
     }
     if let count = item.childCount, item.isDirectory {
-      desc.append(String(count) + " items")
+      desc.append(FinderStrings.cellItemCount(count))
     }
     return desc.joined(separator: " · ")
   }

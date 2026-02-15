@@ -36,3 +36,4 @@ Scripts/.build_libarchive/
 
 # macOS
 .DS_Store
+.claude

@@ -14,7 +14,7 @@ let project = Project.module(
       .shared(target: .Logger),
       .shared(target: .UserDefaultsService),
       .SPM.Swinject
-    ]),
+    ], resources: .sourceResources),
     .demo(module: .feature(.ReaderFeature), dependencies: [
       .feature(target: .ReaderFeature),
       .domain(target: .BookDomain),

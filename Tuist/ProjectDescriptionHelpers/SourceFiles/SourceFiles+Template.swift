@@ -11,4 +11,5 @@ public extension SourceFilesList {
 
 public extension ResourceFileElements {
   static let demoResources: ResourceFileElements = "Demo/Resources/**"
+  static let sourceResources: ResourceFileElements = "Sources/Resources/**"
 }

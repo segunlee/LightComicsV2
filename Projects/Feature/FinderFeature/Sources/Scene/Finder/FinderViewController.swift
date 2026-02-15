@@ -69,7 +69,7 @@ final class FinderViewController: UIViewController, ViewControllerLifecycle {
 
   func setupNavigationBar() {
     contextMenuButtonItem.image = UIImage(systemName: "ellipsis.circle")
-    contextMenuButtonItem.accessibilityLabel = "Menu"
+    contextMenuButtonItem.accessibilityLabel = FinderStrings.accessibilityMenu
     contextMenuButtonItem.primaryAction = nil
     contextMenuButtonItem.menu = createNavigationContextMenu()
     navigationItem.rightBarButtonItem = contextMenuButtonItem
@@ -80,12 +80,10 @@ final class FinderViewController: UIViewController, ViewControllerLifecycle {
       .dropFirst()
       .sink { [weak self] state in
         self?.tableView.restoreEmptyView()
-        if state.items.isEmpty {
-          self?.tableView.setEmptyView(state.searchQuery.isEmpty ? .noData : .noSearchResults)
-        }
-
         if let error = state.errorMessage {
           self?.tableView.setEmptyView(.error(description: error))
+        } else if state.items.isEmpty {
+          self?.tableView.setEmptyView(state.searchQuery.isEmpty ? .noData : .noSearchResults)
         }
 
         self?.applySnapshot(
@@ -96,6 +94,11 @@ final class FinderViewController: UIViewController, ViewControllerLifecycle {
         self?.refreshControl.endRefreshing()
         self?.title = state.title
       }
+      .store(in: &cancellable)
+
+    viewModel.toastEvent
+      .receive(on: RunLoop.main)
+      .sink { Toast.show($0) }
       .store(in: &cancellable)
 
     searchSubject
@@ -145,7 +148,7 @@ final class FinderViewController: UIViewController, ViewControllerLifecycle {
   private func setupSearchController() {
     searchController.searchResultsUpdater = self
     searchController.obscuresBackgroundDuringPresentation = false
-    searchController.searchBar.placeholder = "Search"
+    searchController.searchBar.placeholder = FinderStrings.searchPlaceholder
     navigationItem.searchController = searchController
     definesPresentationContext = true
   }

@@ -36,3 +36,6 @@ init:
 
 signing:
 	swift Scripts/CodeSigning.swift
+
+strings:
+	swift Scripts/GenerateStrings.swift

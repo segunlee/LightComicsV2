@@ -47,7 +47,7 @@ final class ReaderSettingViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = "Viewer Settings"
+    title = ReaderStrings.settingTitle
     view.backgroundColor = .systemBackground
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(needDismiss))
     setupOptionsView()
@@ -104,21 +104,21 @@ final class ReaderSettingViewController: UIViewController {
 
     // General card
     let generalCard = makeCard(rows: [
-      CardRow(title: "Transition", items: ["Paging", "Page Curl", "Scroll", "None"], selectedIndex: options.transition.rawValue, type: .transition),
-      CardRow(title: "Display", items: ["Single", "Double"], selectedIndex: options.display.rawValue, type: .display),
-      CardRow(title: "Direction", items: ["To Right", "To Left", "To Bottom"], selectedIndex: options.direction.rawValue, type: .direction)
+      CardRow(title: ReaderStrings.settingRowTransition, items: ReaderStrings.transitionItems, selectedIndex: options.transition.rawValue, type: .transition),
+      CardRow(title: ReaderStrings.settingRowDisplay, items: ReaderStrings.displayItems, selectedIndex: options.display.rawValue, type: .display),
+      CardRow(title: ReaderStrings.settingRowDirection, items: ReaderStrings.directionItems, selectedIndex: options.direction.rawValue, type: .direction)
     ])
-    stack.addArrangedSubview(makeSectionHeader("General"))
+    stack.addArrangedSubview(makeSectionHeader(ReaderStrings.settingSectionGeneral))
     stack.addArrangedSubview(generalCard)
 
     // Image-specific card
     if options.contentType == .image {
       let imageCard = makeCard(rows: [
-        CardRow(title: "Content Mode", items: ["Aspect Fit", "Aspect Fill", "Scroll to Fit"], selectedIndex: options.imageContentMode.rawValue, type: .imageContentMode),
-        CardRow(title: "Wide Page Splitting", items: ["None", "Cut", "Cut & Reverse"], selectedIndex: options.imageCutMode.rawValue, type: .imageCutMode),
-        CardRow(title: "Image Filter", items: ["None", "Contrast", "Inverted", "Grayscale"], selectedIndex: options.imageFilterMode.rawValue, type: .imageFilterMode)
+        CardRow(title: ReaderStrings.settingRowContentMode, items: ReaderStrings.contentModeItems, selectedIndex: options.imageContentMode.rawValue, type: .imageContentMode),
+        CardRow(title: ReaderStrings.settingRowWidePageSplitting, items: ReaderStrings.cutModeItems, selectedIndex: options.imageCutMode.rawValue, type: .imageCutMode),
+        CardRow(title: ReaderStrings.settingRowImageFilter, items: ReaderStrings.filterItems, selectedIndex: options.imageFilterMode.rawValue, type: .imageFilterMode)
       ])
-      stack.addArrangedSubview(makeSectionHeader("Image"))
+      stack.addArrangedSubview(makeSectionHeader(ReaderStrings.settingSectionImage))
       stack.addArrangedSubview(imageCard)
     }
   }

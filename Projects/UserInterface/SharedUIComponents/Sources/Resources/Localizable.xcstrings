@@ -1,0 +1,101 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "shared.empty.error.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error occurred"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류가 발생했습니다"
+          }
+        }
+      }
+    },
+    "shared.empty.no_data.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There's nothing here yet."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아직 아무것도 없습니다."
+          }
+        }
+      }
+    },
+    "shared.empty.no_data.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Data"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "데이터 없음"
+          }
+        }
+      }
+    },
+    "shared.empty.no_search_results.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No matches for your search."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "검색과 일치하는 항목이 없습니다."
+          }
+        }
+      }
+    },
+    "shared.empty.no_search_results.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Search Results"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "검색 결과 없음"
+          }
+        }
+      }
+    },
+    "Show Error Toast" : {
+      "shouldTranslate" : false
+    },
+    "Show Info Toast" : {
+      "shouldTranslate" : false
+    },
+    "Show Simple Toast" : {
+      "shouldTranslate" : false
+    },
+    "Show Warning Toast" : {
+      "shouldTranslate" : false
+    },
+    "Toast Examples" : {
+      "shouldTranslate" : false
+    }
+  },
+  "version" : "1.0"
+}

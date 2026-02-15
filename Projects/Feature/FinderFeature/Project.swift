@@ -14,7 +14,7 @@ let project = Project.module(
       .shared(target: .Logger),
       .shared(target: .UserDefaultsService),
       .SPM.Swinject
-    ]),
+    ], resources: .sourceResources),
     .demo(module: .feature(.FinderFeature), dependencies: [
       .feature(target: .FinderFeature),
       .domain(target: .FinderDomain)

@@ -54,7 +54,7 @@ final class FinderDirSelectionViewController: UIViewController, ViewControllerLi
 
   func setupNavigationBar() {
     contextMenuButtonItem.image = UIImage(systemName: "ellipsis.circle")
-    contextMenuButtonItem.accessibilityLabel = "Menu"
+    contextMenuButtonItem.accessibilityLabel = FinderStrings.accessibilityMenu
     contextMenuButtonItem.primaryAction = nil
     contextMenuButtonItem.menu = createContextMenu()
 
@@ -64,7 +64,7 @@ final class FinderDirSelectionViewController: UIViewController, ViewControllerLi
       target: self,
       action: #selector(confirmSelection)
     )
-    confirmButtonItem.accessibilityLabel = "Move Here"
+    confirmButtonItem.accessibilityLabel = FinderStrings.dirSelectionMoveHere
 
     navigationItem.rightBarButtonItems = [confirmButtonItem, contextMenuButtonItem]
 

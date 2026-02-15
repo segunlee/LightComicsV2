@@ -6,7 +6,7 @@ extension FinderDirSelectionViewController {
     return UIMenu(title: "", children: [
       UIMenu(title: "", options: .displayInline, children: [
         UIAction(
-          title: "New Folder",
+          title: FinderStrings.menuNewFolder,
           image: UIImage(systemName: "folder.badge.plus"),
           handler: { [weak self] _ in
             self?.showCreateDirectoryAlert()
@@ -14,9 +14,9 @@ extension FinderDirSelectionViewController {
         )
       ]),
 
-      UIMenu(title: "Sort", options: .displayInline, children: [
+      UIMenu(title: FinderStrings.menuSort, options: .displayInline, children: [
         UIAction(
-          title: "Name",
+          title: FinderStrings.menuName,
           subtitle: state.createSortDescription(for: .name),
           state: state.sortType == .name ? .on : .off,
           handler: { [weak self] _ in
@@ -25,7 +25,7 @@ extension FinderDirSelectionViewController {
           }
         ),
         UIAction(
-          title: "Date",
+          title: FinderStrings.menuDate,
           subtitle: state.createSortDescription(for: .date),
           state: state.sortType == .date ? .on : .off,
           handler: { [weak self] _ in
@@ -34,7 +34,7 @@ extension FinderDirSelectionViewController {
           }
         ),
         UIAction(
-          title: "Size",
+          title: FinderStrings.menuSize,
           subtitle: state.createSortDescription(for: .size),
           state: state.sortType == .size ? .on : .off,
           handler: { [weak self] _ in

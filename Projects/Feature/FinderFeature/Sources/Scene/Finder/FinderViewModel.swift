@@ -1,6 +1,8 @@
+import Combine
 import FinderDomainInterface
 import Foundation
 import Logger
+import SharedUIComponents
 import UserDefaultsService
 
 // MARK: - FileSortType
@@ -37,6 +39,7 @@ let FinderDocumentsPath = FileManager.default.urls(for: .documentDirectory, in: 
 @MainActor
 final class FinderViewModel: ObservableObject {
   @Published private(set) var state = FinderViewState()
+  let toastEvent = PassthroughSubject<ToastConfiguration, Never>()
 
   private let useCase: FinderUseCase
   private(set) var currentPath: String = ""
@@ -240,7 +243,7 @@ final class FinderViewModel: ObservableObject {
         state = next
       } catch {
         guard !Task.isCancelled else { return }
-        state.errorMessage = error.localizedDescription
+        toastEvent.send(.init(type: .error, message: error.localizedDescription))
         Log.error("\(errorContext): \(error.localizedDescription)")
       }
     }

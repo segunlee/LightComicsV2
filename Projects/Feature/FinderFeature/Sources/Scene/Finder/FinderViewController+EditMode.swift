@@ -8,7 +8,7 @@ extension FinderViewController {
 
     if isEditMode {
       let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(exitEditMode))
-      let selectAllButton = UIBarButtonItem(title: "Select All", style: .plain, target: self, action: #selector(handleSelectAll))
+      let selectAllButton = UIBarButtonItem(title: FinderStrings.editSelectAll, style: .plain, target: self, action: #selector(handleSelectAll))
       navigationItem.leftBarButtonItems = [selectAllButton]
       navigationItem.rightBarButtonItems = [doneButton]
       setupToolbar()
@@ -59,7 +59,7 @@ extension FinderViewController {
 
   @objc func moveSelectedItems() {
     guard let selectedRows = tableView.indexPathsForSelectedRows, !selectedRows.isEmpty else {
-      Toast.show(.init(type: .warn, message: "Select items to move"))
+      Toast.show(.init(type: .warn, message: FinderStrings.editSelectToMove))
       return
     }
 
@@ -72,7 +72,7 @@ extension FinderViewController {
 
   @objc func deleteSelectedItems() {
     guard let selectedRows = tableView.indexPathsForSelectedRows, !selectedRows.isEmpty else {
-      Toast.show(.init(type: .warn, message: "Select items to delete"))
+      Toast.show(.init(type: .warn, message: FinderStrings.editSelectToDelete))
       return
     }
 

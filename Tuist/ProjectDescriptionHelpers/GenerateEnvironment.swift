@@ -20,7 +20,7 @@ public extension GenerateEnvironment {
       return []
 
     case .dev:
-      return [.swiftLint]
+      return [.generateStrings, .swiftLint]
     }
   }
 }

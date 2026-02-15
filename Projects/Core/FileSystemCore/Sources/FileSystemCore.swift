@@ -9,57 +9,105 @@ public final class FileSystemCore: FileSystemCoreInterface, @unchecked Sendable 
   public init() {}
 
   public func readDirectory(at path: String) throws -> [FileSystemItem] {
-    let baseURL = try documentsBaseURL()
-    let targetPath = try resolvePath(path, baseURL: baseURL)
-
-    let items = targetPath.children().map { item in
-      let modifiedDate = item.modificationDate
-      var size: Int64?
-      if let fSize = item.fileSize {
-        size = Int64(fSize)
+    do {
+      let baseURL = try documentsBaseURL()
+      let targetPath = try resolvePath(path, baseURL: baseURL)
+      
+      let items = targetPath.children().map { item in
+        let modifiedDate = item.modificationDate
+        var size: Int64?
+        if let fSize = item.fileSize {
+          size = Int64(fSize)
+        }
+        
+        return FileSystemItem(
+          name: item.fileName,
+          path: item.rawValue,
+          isDirectory: item.isDirectory,
+          childCount: item.children().count,
+          modifiedDate: modifiedDate,
+          size: size
+        )
       }
-
-      return FileSystemItem(
-        name: item.fileName,
-        path: item.rawValue,
-        isDirectory: item.isDirectory,
-        childCount: item.children().count,
-        modifiedDate: modifiedDate,
-        size: size
-      )
+      Log.debug("readDirectory: \(items.count) items at \(targetPath.fileName)")
+      return items
+    } catch {
+      if let error = error as? FileKitError {
+        throw error.error ?? error
+      } else {
+        throw error
+      }
     }
-    Log.debug("readDirectory: \(items.count) items at \(targetPath.fileName)")
-    return items
   }
 
   public func createDirectory(named name: String, at path: String) throws {
-    let baseURL = try documentsBaseURL()
-    let targetPath = try resolvePath(path, baseURL: baseURL)
-    try (targetPath + name).createDirectory()
-    Log.debug("createDirectory: '\(name)' at \(targetPath.fileName)")
+    do {
+      let baseURL = try documentsBaseURL()
+      let targetPath = try resolvePath(path, baseURL: baseURL)
+      try (targetPath + name).createDirectory()
+      Log.debug("createDirectory: '\(name)' at \(targetPath.fileName)")
+    } catch {
+      if let error = error as? FileKitError {
+        throw error.error ?? error
+      } else {
+        throw error
+      }
+    }
   }
 
   public func deleteItem(at path: String) throws {
-    let baseURL = try documentsBaseURL()
-    let targetPath = try resolvePath(path, baseURL: baseURL)
-    Log.debug("deleteItem: \(targetPath.fileName)")
-    try targetPath.deleteFile()
+    do {
+      let baseURL = try documentsBaseURL()
+      let targetPath = try resolvePath(path, baseURL: baseURL)
+      Log.debug("deleteItem: \(targetPath.fileName)")
+      do {
+        try targetPath.deleteFile()
+      } catch {
+        if let error = error as? FileKitError {
+          throw error.error ?? error
+        } else {
+          throw error
+        }
+      }
+    } catch {
+      if let error = error as? FileKitError {
+        throw error.error ?? error
+      } else {
+        throw error
+      }
+    }
   }
 
   public func moveItem(from sourcePath: String, to destinationPath: String) throws {
-    let baseURL = try documentsBaseURL()
-    let source = try resolvePath(sourcePath, baseURL: baseURL)
-    let destination = try resolvePath(destinationPath, baseURL: baseURL)
-    Log.debug("moveItem: \(source.fileName) -> \(destination.fileName)")
-    try source.moveFile(to: destination)
+    do {
+      let baseURL = try documentsBaseURL()
+      let source = try resolvePath(sourcePath, baseURL: baseURL)
+      let destination = try resolvePath(destinationPath, baseURL: baseURL)
+      Log.debug("moveItem: \(source.fileName) -> \(destination.fileName)")
+      try source.moveFile(to: destination)
+    } catch {
+      if let error = error as? FileKitError {
+        throw error.error ?? error
+      } else {
+        throw error
+      }
+    }
   }
 
   public func copyItem(from sourcePath: String, to destinationPath: String) throws {
-    let baseURL = try documentsBaseURL()
-    let source = try resolvePath(sourcePath, baseURL: baseURL)
-    let destination = try resolvePath(destinationPath, baseURL: baseURL)
-    Log.debug("copyItem: \(source.fileName) -> \(destination.fileName)")
-    try source.copyFile(to: destination)
+    do {
+      let baseURL = try documentsBaseURL()
+      let source = try resolvePath(sourcePath, baseURL: baseURL)
+      let destination = try resolvePath(destinationPath, baseURL: baseURL)
+      Log.debug("copyItem: \(source.fileName) -> \(destination.fileName)")
+      try source.copyFile(to: destination)
+    } catch {
+      if let error = error as? FileKitError {
+        throw error.error ?? error
+      } else {
+        throw error
+      }
+    }
   }
 
   private func documentsBaseURL() throws -> URL {
