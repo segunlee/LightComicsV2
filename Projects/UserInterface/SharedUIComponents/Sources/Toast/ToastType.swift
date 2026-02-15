@@ -1,5 +1,3 @@
-import SwiftUI
-
 // MARK: - ToastType
 
 public enum ToastType: Sendable {
@@ -9,25 +7,12 @@ public enum ToastType: Sendable {
 
   // MARK: - Properties
 
-  var icon: String {
+  var animationName: String {
     switch self {
     case .info:
-      return "info.circle.fill"
-    case .warn:
-      return "exclamationmark.triangle.fill"
-    case .error:
-      return "xmark.circle.fill"
-    }
-  }
-
-  var iconColor: Color {
-    switch self {
-    case .info:
-      return .blue
-    case .warn:
-      return .orange
-    case .error:
-      return .red
+      return "info_notification"
+    case .warn, .error:
+      return "error_warning"
     }
   }
 }

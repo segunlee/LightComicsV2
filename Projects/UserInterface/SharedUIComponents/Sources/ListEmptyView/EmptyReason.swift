@@ -1,25 +1,23 @@
-import UIKit
-
 // MARK: - EmptyReason
 
 public enum EmptyReason: Sendable {
   case noData
   case noSearchResults
   case error(description: String)
-  case custom(imageName: String, message: String, description: String? = nil)
+  case custom(animationName: String? = nil, message: String, description: String? = nil)
 
   // MARK: - Properties
 
-  var image: UIImage? {
+  var animationName: String? {
     switch self {
     case .noData:
-      UIImage(systemName: "tray")
+      "empty_box"
     case .noSearchResults:
-      UIImage(systemName: "magnifyingglass")
+      "no_search_results"
     case .error:
-      UIImage(systemName: "exclamationmark.triangle")
-    case .custom(let imageName, _, _):
-      UIImage(systemName: imageName) ?? UIImage(named: imageName)
+      "error_warning"
+    case .custom(let animationName, _, _):
+      animationName
     }
   }
 

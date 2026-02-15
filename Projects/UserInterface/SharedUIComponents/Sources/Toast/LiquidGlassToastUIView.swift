@@ -11,7 +11,7 @@ final class LiquidGlassToastUIView: UIView {
   private let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
   private lazy var blurView = UIVisualEffectView(effect: blurEffect)
 
-  private let iconImageView = UIImageView()
+  private var iconView: LottieUIView?
   private let titleLabel = UILabel()
   private let messageLabel = UILabel()
   private lazy var actionButton: UIButton = {
@@ -69,11 +69,12 @@ final class LiquidGlassToastUIView: UIView {
     layer.shadowRadius = 20
 
     // Icon
-    let iconConfig = UIImage.SymbolConfiguration(pointSize: 24, weight: .regular)
-    iconImageView.image = UIImage(systemName: configuration.type.icon, withConfiguration: iconConfig)
-    iconImageView.tintColor = configuration.type.uiColor
-    iconImageView.contentMode = .center
-    iconImageView.translatesAutoresizingMaskIntoConstraints = false
+    let lottieIcon = LottieUIView(
+      animationName: configuration.type.animationName,
+      loopMode: .playOnce
+    )
+    lottieIcon.translatesAutoresizingMaskIntoConstraints = false
+    iconView = lottieIcon
 
     // Text stack
     let textStack = UIStackView()
@@ -103,7 +104,7 @@ final class LiquidGlassToastUIView: UIView {
     stackView.alignment = .center
     stackView.translatesAutoresizingMaskIntoConstraints = false
 
-    stackView.addArrangedSubview(iconImageView)
+    stackView.addArrangedSubview(lottieIcon)
     stackView.addArrangedSubview(textStack)
 
     // Button
@@ -124,8 +125,8 @@ final class LiquidGlassToastUIView: UIView {
       stackView.trailingAnchor.constraint(equalTo: blurView.contentView.trailingAnchor, constant: -16),
       stackView.bottomAnchor.constraint(equalTo: blurView.contentView.bottomAnchor, constant: -16),
 
-      iconImageView.widthAnchor.constraint(equalToConstant: 28),
-      iconImageView.heightAnchor.constraint(equalToConstant: 28)
+      lottieIcon.widthAnchor.constraint(equalToConstant: 28),
+      lottieIcon.heightAnchor.constraint(equalToConstant: 28)
     ])
   }
 
@@ -170,21 +171,6 @@ final class LiquidGlassToastUIView: UIView {
       }
     default:
       break
-    }
-  }
-}
-
-// MARK: - ToastType + UIColor
-
-private extension ToastType {
-  var uiColor: UIColor {
-    switch self {
-    case .info:
-      return .systemBlue
-    case .warn:
-      return .systemOrange
-    case .error:
-      return .systemRed
     }
   }
 }

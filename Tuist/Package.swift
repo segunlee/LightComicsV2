@@ -9,6 +9,7 @@ import PackageDescription
     productTypes: [
       "FileKit": .framework,
       "GRDB": .framework,
+      "Lottie": .framework,
       "Swinject": .framework
     ],
     baseSettings: .settings(
@@ -23,6 +24,7 @@ import PackageDescription
 let package = Package(
   name: "LightComics",
   dependencies: [
+    .package(url: "https://github.com/airbnb/lottie-spm.git", from: "4.6.0"),
     .package(url: "https://github.com/groue/GRDB.swift.git", from: "7.5.0"),
     .package(url: "https://github.com/nvzqz/FileKit.git", from: "6.0.0"),
     .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0")

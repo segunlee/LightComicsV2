@@ -7,17 +7,7 @@ public final class ListEmptyView: UIView {
 
   // MARK: - Properties
 
-  private let imageView: UIImageView = {
-    let imageView = UIImageView()
-    imageView.contentMode = .scaleAspectFit
-    imageView.tintColor = .label
-    imageView.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      imageView.widthAnchor.constraint(equalToConstant: 80),
-      imageView.heightAnchor.constraint(equalToConstant: 80)
-    ])
-    return imageView
-  }()
+  private var lottieView: LottieUIView?
 
   private let messageLabel: UILabel = {
     let label = UILabel()
@@ -61,10 +51,18 @@ public final class ListEmptyView: UIView {
   // MARK: - Private Methods
 
   private func setupUI(reason: EmptyReason) {
-    imageView.image = reason.image
-    messageLabel.text = reason.message
+    if let animationName = reason.animationName {
+      let view = LottieUIView(animationName: animationName)
+      view.translatesAutoresizingMaskIntoConstraints = false
+      NSLayoutConstraint.activate([
+        view.widthAnchor.constraint(equalToConstant: 120),
+        view.heightAnchor.constraint(equalToConstant: 120)
+      ])
+      lottieView = view
+      stackView.addArrangedSubview(view)
+    }
 
-    stackView.addArrangedSubview(imageView)
+    messageLabel.text = reason.message
     stackView.addArrangedSubview(messageLabel)
 
     if let description = reason.description {

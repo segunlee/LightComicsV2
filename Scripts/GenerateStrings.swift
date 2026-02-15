@@ -126,12 +126,16 @@ func detectArrayGroups(keys: [String]) -> [DetectedArrayGroup] {
 // MARK: - Project Root
 
 let projectRoot: URL = {
-  // When run by xcodebuild, SRCROOT points to the App project directory
+  // When run by xcodebuild, SRCROOT points to the module project directory
   if let srcRoot = ProcessInfo.processInfo.environment["SRCROOT"] {
-    // SRCROOT is Projects/App, go up 2 levels to reach project root
-    return URL(fileURLWithPath: srcRoot)
-      .deletingLastPathComponent()
-      .deletingLastPathComponent()
+    // Walk up from SRCROOT until we find the Tuist directory (project root marker)
+    var url = URL(fileURLWithPath: srcRoot)
+    while url.path != "/" {
+      if FileManager.default.fileExists(atPath: url.appendingPathComponent("Tuist").path) {
+        return url
+      }
+      url = url.deletingLastPathComponent()
+    }
   }
   // When run from CLI, use script location
   return URL(fileURLWithPath: #filePath)
