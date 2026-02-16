@@ -85,7 +85,7 @@ final class LiquidGlassToastUIView: UIView {
     // Title
     if let title = configuration.title {
       titleLabel.text = title
-      titleLabel.font = .systemFont(ofSize: 15, weight: .semibold)
+      titleLabel.font = .systemFont(ofSize: 15, weight: .bold)
       titleLabel.textColor = .label
       titleLabel.numberOfLines = 1
       textStack.addArrangedSubview(titleLabel)
@@ -94,7 +94,7 @@ final class LiquidGlassToastUIView: UIView {
     // Message
     messageLabel.text = configuration.message
     messageLabel.font = .systemFont(ofSize: 14, weight: .regular)
-    messageLabel.textColor = .secondaryLabel
+    messageLabel.textColor = .label
     messageLabel.numberOfLines = 3
     textStack.addArrangedSubview(messageLabel)
 

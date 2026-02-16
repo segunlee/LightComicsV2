@@ -107,7 +107,7 @@
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "삭제"
           }
         }
@@ -237,6 +237,22 @@
         }
       }
     },
+    "finder.edit.deselect_all" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deselect All"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "전체 선택 해제"
+          }
+        }
+      }
+    },
     "finder.edit.select_all" : {
       "localizations" : {
         "en" : {
@@ -248,7 +264,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "모두 선택"
+            "value" : "전체 선택"
           }
         }
       }

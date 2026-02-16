@@ -113,8 +113,8 @@ public final class ToastManager {
     containerView.addSubview(toast)
 
     NSLayoutConstraint.activate([
-      toast.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-      toast.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+      toast.centerXAnchor.constraint(equalTo: containerView.centerXAnchor, constant: 0),
+      toast.widthAnchor.constraint(equalToConstant: min(containerView.frame.width - 32, 300)),
       toast.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.bottomAnchor, constant: -60)
     ])
 

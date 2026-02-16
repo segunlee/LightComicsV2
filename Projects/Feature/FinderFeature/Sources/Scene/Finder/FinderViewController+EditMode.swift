@@ -1,7 +1,16 @@
 import UIKit
 import SharedUIComponents
 
+// MARK: - FinderViewController + EditMode Associated Keys
+
+@MainActor private var selectAllButtonKey: UInt8 = 0
+
 extension FinderViewController {
+  private var selectAllBarButton: UIBarButtonItem? {
+    get { objc_getAssociatedObject(self, &selectAllButtonKey) as? UIBarButtonItem }
+    set { objc_setAssociatedObject(self, &selectAllButtonKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  }
+
   func updateEditMode() {
     tableView.setEditing(isEditMode, animated: true)
     navigationController?.tabBarController?.setTabBarHidden(isEditMode, animated: false)
@@ -9,10 +18,12 @@ extension FinderViewController {
     if isEditMode {
       let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(exitEditMode))
       let selectAllButton = UIBarButtonItem(title: FinderStrings.editSelectAll, style: .plain, target: self, action: #selector(handleSelectAll))
+      selectAllBarButton = selectAllButton
       navigationItem.leftBarButtonItems = [selectAllButton]
       navigationItem.rightBarButtonItems = [doneButton]
       setupToolbar()
     } else {
+      selectAllBarButton = nil
       navigationItem.leftBarButtonItems = nil
       setupNavigationBar()
       navigationController?.setToolbarHidden(true, animated: true)
@@ -50,11 +61,31 @@ extension FinderViewController {
   }
 
   @objc func handleSelectAll() {
-    for section in 0 ..< tableView.numberOfSections {
-      for row in 0 ..< tableView.numberOfRows(inSection: section) {
-        tableView.selectRow(at: IndexPath(row: row, section: section), animated: false, scrollPosition: .none)
+    let totalRows = (0 ..< tableView.numberOfSections).reduce(0) { $0 + tableView.numberOfRows(inSection: $1) }
+    let selectedRows = tableView.indexPathsForSelectedRows?.count ?? 0
+
+    if selectedRows == totalRows {
+      for section in 0 ..< tableView.numberOfSections {
+        for row in 0 ..< tableView.numberOfRows(inSection: section) {
+          tableView.deselectRow(at: IndexPath(row: row, section: section), animated: false)
+        }
+      }
+    } else {
+      for section in 0 ..< tableView.numberOfSections {
+        for row in 0 ..< tableView.numberOfRows(inSection: section) {
+          tableView.selectRow(at: IndexPath(row: row, section: section), animated: false, scrollPosition: .none)
+        }
       }
     }
+    updateSelectAllButtonTitle()
+  }
+
+  func updateSelectAllButtonTitle() {
+    let totalRows = (0 ..< tableView.numberOfSections).reduce(0) { $0 + tableView.numberOfRows(inSection: $1) }
+    let selectedCount = tableView.indexPathsForSelectedRows?.count ?? 0
+    selectAllBarButton?.title = (totalRows > 0 && selectedCount == totalRows)
+      ? FinderStrings.editDeselectAll
+      : FinderStrings.editSelectAll
   }
 
   @objc func moveSelectedItems() {

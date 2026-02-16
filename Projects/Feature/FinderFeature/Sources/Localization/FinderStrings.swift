@@ -93,6 +93,11 @@ enum FinderStrings {
 
   // MARK: - Edit
 
+  /// Deselect All
+  static var editDeselectAll: String {
+    String(localized: "finder.edit.deselect_all", bundle: .finderFeature)
+  }
+
   /// Select All
   static var editSelectAll: String {
     String(localized: "finder.edit.select_all", bundle: .finderFeature)

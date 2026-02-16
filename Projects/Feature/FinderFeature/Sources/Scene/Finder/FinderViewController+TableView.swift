@@ -57,11 +57,19 @@ extension FinderViewController {
 
 extension FinderViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard !isEditMode else { return }
+    if isEditMode {
+      updateSelectAllButtonTitle()
+      return
+    }
 
     guard let item = diffableDataSource?.itemIdentifier(for: indexPath) else { return }
 
     commitCellAction(with: item)
+  }
+
+  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    guard isEditMode else { return }
+    updateSelectAllButtonTitle()
   }
 
   func tableView(_: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
