@@ -17,6 +17,6 @@ public final class ReaderFeatureAssembly: Assembly {
         fatalError("ArchiveFileCoreInterface not registered")
       }
       return ReaderFeatureFactoryImpl(bookDomain: bookDomain, archiveCore: archiveCore)
-    }
+    }.inObjectScope(.container)
   }
 }

@@ -1,3 +1,4 @@
+import BookShelfFeatureInterface
 import FinderFeatureInterface
 import Logger
 import UIKit
@@ -22,6 +23,18 @@ final class WindowSetupService: SceneDelegateService {
     let window = UIWindow(windowScene: scene)
     let tabBarController = UITabBarController()
 
+    let bookShelfTab = UITab(
+      title: "서재",
+      image: UIImage(systemName: "books.vertical"),
+      identifier: "bookshelf"
+    ) { [weak self] _ in
+      guard let factory = self?.diContainer.bookShelfFeatureFactory else {
+        return UINavigationController()
+      }
+      return factory.makeBookShelfNavigationController()
+    }
+    bookShelfTab.preferredPlacement = .fixed
+
     let documentsTab = UITab(title: "Documents", image: UIImage(systemName: "folder"), identifier: "documents") { [weak self] _ in
       guard let factory = self?.diContainer.finderFeatureFactory else {
         return UINavigationController()
@@ -38,7 +51,7 @@ final class WindowSetupService: SceneDelegateService {
     }
     finderTab.preferredPlacement = .fixed
 
-    tabBarController.tabs = [documentsTab, finderTab]
+    tabBarController.tabs = [bookShelfTab, documentsTab, finderTab]
     tabBarController.mode = .tabSidebar
     tabBarController.tabBarMinimizeBehavior = .onScrollDown
 

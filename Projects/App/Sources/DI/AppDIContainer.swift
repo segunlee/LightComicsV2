@@ -2,6 +2,8 @@ import ArchiveFileCore
 import ArchiveFileCoreInterface
 import BookDomain
 import BookDomainInterface
+import BookShelfFeature
+import BookShelfFeatureInterface
 import DatabaseCore
 import DatabaseCoreInterface
 import FileSystemCore
@@ -20,6 +22,13 @@ final class AppDIContainer {
   init() {
     container = Container()
     assembleDependencies()
+  }
+
+  var bookShelfFeatureFactory: BookShelfFeatureFactory {
+    guard let factory = container.resolve(BookShelfFeatureFactory.self) else {
+      fatalError("BookShelfFeatureFactory not registered")
+    }
+    return factory
   }
 
   var finderFeatureFactory: FinderFeatureFactory {
@@ -55,6 +64,7 @@ final class AppDIContainer {
     BookDomainAssembly().assemble(container: container)
 
     // Register Feature modules
+    BookShelfFeatureAssembly().assemble(container: container)
     FinderFeatureAssembly().assemble(container: container)
     ReaderFeatureAssembly().assemble(container: container)
   }
