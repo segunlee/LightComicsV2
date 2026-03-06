@@ -102,15 +102,30 @@ final class BookShelfViewModel: ObservableObject {
     let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
       .first?.path ?? ""
 
+    var rootItems: [ReadInfo] = []
     var subfolderGroups: [String: [ReadInfo]] = [:]
     for readInfo in all {
       guard let path = readInfo.pathString else { continue }
       let parent = (path as NSString).deletingLastPathComponent
-      guard parent != documentsPath, parent.hasPrefix(documentsPath + "/") else { continue }
-      let relative = String(parent.dropFirst(documentsPath.count + 1))
-      let firstComponent = relative.split(separator: "/").first.map(String.init) ?? relative
-      let subfolderPath = documentsPath + "/" + firstComponent
-      subfolderGroups[subfolderPath, default: []].append(readInfo)
+      if parent == documentsPath {
+        var isDir: ObjCBool = false
+        if FileManager.default.fileExists(atPath: path, isDirectory: &isDir), isDir.boolValue {
+          subfolderGroups[path, default: []].append(readInfo)
+        } else {
+          rootItems.append(readInfo)
+        }
+      } else if parent.hasPrefix(documentsPath + "/") {
+        let relative = String(parent.dropFirst(documentsPath.count + 1))
+        let firstComponent = relative.split(separator: "/").first.map(String.init) ?? relative
+        let subfolderPath = documentsPath + "/" + firstComponent
+        subfolderGroups[subfolderPath, default: []].append(readInfo)
+      }
+    }
+
+    if !rootItems.isEmpty {
+      sections.append(.root)
+      itemsBySection[.root] = rootItems
+      rootItems.forEach { allItems[$0.id] = $0 }
     }
 
     let sortedFolders = subfolderGroups.keys

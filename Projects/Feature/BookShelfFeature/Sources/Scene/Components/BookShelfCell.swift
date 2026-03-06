@@ -54,11 +54,21 @@ struct BookShelfCell: View {
   }
 
   private var durationText: String {
-    guard let endDate = readInfo.readDate else { return "읽는 중" }
-    let days = Calendar.current.dateComponents([.day], from: readInfo.createDate, to: endDate).day ?? 0
-    if days == 0 { return "당일" }
-    if days < 30 { return "\(days)일" }
-    return "\(days / 30)개월"
+    guard let readDate = readInfo.readDate else { return "읽는 중" }
+    let totalMinutes = max(1, Int(Date.now.timeIntervalSince(readDate) / 60))
+    if totalMinutes < 60 {
+      return "\(totalMinutes)분 전에 읽음"
+    }
+    let hours = totalMinutes / 60
+    let remainingMinutes = totalMinutes % 60
+    if hours < 24 {
+      return remainingMinutes == 0
+        ? "\(hours)시간 전에 읽음"
+        : "\(hours)시간 \(remainingMinutes)분 전에 읽음"
+    }
+    let days = totalMinutes / 1440
+    if days < 30 { return "\(days)일 전에 읽음" }
+    return "\(days / 30)개월 전에 읽음"
   }
 
   // MARK: Body

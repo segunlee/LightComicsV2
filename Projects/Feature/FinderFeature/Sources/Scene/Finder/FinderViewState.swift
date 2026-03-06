@@ -35,4 +35,5 @@ enum FinderViewAction {
   case clone(FileItem)
   case toggleSort(FileSortType)
   case reloadItem(FileItem)
+  case unzipItem(FileItem)
 }

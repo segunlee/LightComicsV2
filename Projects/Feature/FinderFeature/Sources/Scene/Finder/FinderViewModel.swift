@@ -78,6 +78,8 @@ final class FinderViewModel: ObservableObject {
       toggleSort(by: type)
     case let .reloadItem(item):
       reloadItem(item)
+    case let .unzipItem(item):
+      unzipItem(item)
     }
   }
 
@@ -167,6 +169,19 @@ final class FinderViewModel: ObservableObject {
         state = next
       } catch {
         Log.error("Reload item '\(item.name)' failed: \(error.localizedDescription)")
+      }
+    }
+  }
+  
+  private func unzipItem(_ item: FileItem) {
+    let useCase = self.useCase
+    let path = currentPath
+    loadTask?.cancel()
+    loadTask = Task {
+      do {
+        
+      } catch {
+        Log.error("Unzip Item '\(item.name)' failed: \(error.localizedDescription)")
       }
     }
   }

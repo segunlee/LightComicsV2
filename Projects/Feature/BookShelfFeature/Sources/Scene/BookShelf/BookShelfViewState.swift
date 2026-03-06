@@ -6,6 +6,7 @@ import Foundation
 enum BookShelfSectionType: Hashable {
   case nowReading
   case read
+  case root
   case folder(path: String, name: String)
 
   var title: String {
@@ -14,6 +15,8 @@ enum BookShelfSectionType: Hashable {
       return "읽는 중"
     case .read:
       return "다 읽음"
+    case .root:
+      return "Documents"
     case let .folder(_, name):
       return name
     }
@@ -27,7 +30,7 @@ struct BookShelfViewState {
   var itemsBySection: [BookShelfSectionType: [ReadInfo]] = [:]
   var allItems: [String: ReadInfo] = [:]
   var isLoading: Bool = false
-  var errorMessage: String? = nil
+  var errorMessage: String?
 }
 
 // MARK: - BookShelfViewAction
